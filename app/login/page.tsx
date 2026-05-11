@@ -53,25 +53,23 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(15,23,42,0.08),_transparent_30%),linear-gradient(180deg,#f8fafc_0%,#eef2ff_100%)] px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mx-auto grid w-full max-w-5xl gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-        <section className="rounded-[2.5rem] border border-slate-200/70 bg-slate-950 p-8 text-white shadow-2xl shadow-slate-300/20">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">SushiTrack</p>
-          <h1 className="mt-4 max-w-lg text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Shipment, delivery, and EOD tracking in one place.
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(15,23,42,0.08),_transparent_30%),linear-gradient(180deg,#f8fafc_0%,#eef2ff_100%)] px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto flex w-full max-w-lg flex-col gap-4">
+        <div className="rounded-[2.5rem] border border-slate-200/70 bg-white/85 p-6 shadow-xl shadow-slate-200/50 backdrop-blur">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">SushiTrack</p>
+          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            Sign in to continue.
           </h1>
-          <p className="mt-4 max-w-xl text-sm leading-6 text-slate-300 sm:text-base">
-            Use the web app on desktop or install it on mobile for faster access when your brother tests it.
+          <p className="mt-2 text-sm leading-6 text-slate-600">
+            Use the web app on desktop, or install it on your phone for quicker access.
           </p>
+        </div>
 
-          <div className="mt-8 max-w-xl">
-            <InstallAppPrompt />
-          </div>
-        </section>
+        <InstallAppPrompt />
 
         <section className="rounded-[2.5rem] border border-white/70 bg-white/90 p-8 shadow-2xl shadow-slate-200/50 backdrop-blur">
           <div className="mb-8 text-center">
-            <h2 className="text-3xl font-semibold tracking-tight text-slate-950">Sign in</h2>
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-950">Login</h2>
             <p className="mt-2 text-sm text-slate-500">
               Enter your email and password to access the dashboard.
             </p>
