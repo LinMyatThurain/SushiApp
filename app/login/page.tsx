@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { createClient } from "@/lib/supabase/client"
 import { InstallAppPrompt } from "@/components/install-app-prompt"
+import { Fish } from "lucide-react"
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
@@ -53,25 +54,22 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(15,23,42,0.08),_transparent_30%),linear-gradient(180deg,#f8fafc_0%,#eef2ff_100%)] px-4 py-10 sm:px-6 lg:px-8">
-      <div className="mx-auto flex w-full max-w-lg flex-col gap-4">
-        <div className="rounded-[2.5rem] border border-slate-200/70 bg-white/85 p-6 shadow-xl shadow-slate-200/50 backdrop-blur">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">SushiTrack</p>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-            Sign in to continue.
-          </h1>
-          <p className="mt-2 text-sm leading-6 text-slate-600">
-            Use the web app on desktop, or install it on your phone for quicker access.
-          </p>
-        </div>
-
-        <InstallAppPrompt />
-
-        <section className="rounded-[2.5rem] border border-white/70 bg-white/90 p-8 shadow-2xl shadow-slate-200/50 backdrop-blur">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-950">Login</h2>
-            <p className="mt-2 text-sm text-slate-500">
-              Enter your email and password to access the dashboard.
+    <div className="min-h-screen bg-slate-50 px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-md flex-col justify-center">
+        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+          <div className="mb-8">
+            <div className="mb-5 flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-950">
+                <Fish className="h-5 w-5 text-white" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-slate-950">SushiTrack</p>
+                <p className="text-xs text-slate-500">Operations dashboard</p>
+              </div>
+            </div>
+            <h1 className="text-2xl font-semibold text-slate-950">Sign in</h1>
+            <p className="mt-2 text-sm leading-6 text-slate-500">
+              Enter your credentials to continue.
             </p>
           </div>
 
@@ -87,7 +85,7 @@ export default function LoginPage() {
                 required
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
-                className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-slate-700 focus:ring-2 focus:ring-slate-300"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-slate-700 focus:bg-white focus:ring-2 focus:ring-slate-200"
               />
             </div>
 
@@ -102,12 +100,12 @@ export default function LoginPage() {
                 required
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
-                className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-slate-700 focus:ring-2 focus:ring-slate-300"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-slate-700 focus:bg-white focus:ring-2 focus:ring-slate-200"
               />
             </div>
 
             {error ? (
-              <div className="rounded-3xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+              <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
                 {error}
               </div>
             ) : null}
@@ -115,12 +113,16 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-3xl bg-slate-950 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+              className="w-full rounded-xl bg-slate-950 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {loading ? "Signing in..." : "Sign in"}
             </button>
           </form>
         </section>
+
+        <div className="mt-4">
+          <InstallAppPrompt />
+        </div>
       </div>
     </div>
   )

@@ -312,6 +312,7 @@ export async function POST(request: Request) {
     const { error: itemsError } = await admin.from('end_of_day_items').insert(insertRows)
 
     if (itemsError) {
+      await admin.from('end_of_day_submissions').delete().eq('id', submission.id)
       return NextResponse.json({ error: itemsError.message }, { status: 400 })
     }
 

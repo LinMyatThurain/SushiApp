@@ -106,6 +106,7 @@ export async function POST(request: Request) {
     .eq('id', shipmentId)
 
   if (shipmentUpdateError) {
+    await admin.from('inventory_confirmations').delete().eq('shipment_id', shipmentId)
     return NextResponse.json({ error: shipmentUpdateError.message }, { status: 400 })
   }
 
