@@ -40,6 +40,8 @@ databasePw.txt
 *.agent.md
 AGENTS.md
 CLAUDE.md
+handoff.md
+/output/
 
 # supabase local state
 supabase/.temp/
